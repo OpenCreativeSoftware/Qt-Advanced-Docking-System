@@ -68,21 +68,6 @@
 #endif
 
 
-/**
- * Initializes the resources specified by the .qrc file with the specified base
- * name. Normally, when resources are built as part of the application, the
- * resources are loaded automatically at startup. The Q_INIT_RESOURCE() macro
- * is necessary on some platforms for resources stored in a static library.
- * Because GCC causes a linker error if we put Q_INIT_RESOURCE into the
- * loadStyleSheet() function, we place it into a function outside of the ads
- * namespace
- */
-static void initResource()
-{
-	Q_INIT_RESOURCE(ads);
-}
-
-
 namespace ads
 {
 /**
@@ -202,21 +187,7 @@ DockManagerPrivate::DockManagerPrivate(CDockManager* _public) :
 //============================================================================
 void DockManagerPrivate::loadStylesheet()
 {
-	initResource();
-	QString Result;
-	QString FileName = ":ads/stylesheets/";
-	FileName += CDockManager::testConfigFlag(CDockManager::FocusHighlighting)
-		? "focus_highlighting" : "default";
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
-    FileName += "_linux";
-#endif
-    FileName += ".css";
-	QFile StyleSheetFile(FileName);
-	StyleSheetFile.open(QIODevice::ReadOnly);
-	QTextStream StyleSheetStream(&StyleSheetFile);
-	Result = StyleSheetStream.readAll();
-	StyleSheetFile.close();
-	_this->setStyleSheet(Result);
+	// default stylesheets are stripped out in this version
 }
 
 
