@@ -13,11 +13,8 @@ else()
     message(FATAL_ERROR "ADS_VERSION must be in major.minor.patch format, e.g. 3.8.1. Got ${ADS_VERSION}")
 endif()
 
-
 project(QtADS LANGUAGES CXX VERSION ${VERSION_SHORT})
 
-option(BUILD_STATIC "Build the static library" OFF)
-option(BUILD_EXAMPLES "Build the examples" ON)
 
 if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "4")
     set(ads_PlatformDir "x86")
