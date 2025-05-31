@@ -38,7 +38,6 @@ set(ads_SRCS
     AutoHideDockContainer.cpp
     PushButton.cpp
     ResizeHandle.cpp
-    ads.qrc
 )
 set(ads_HEADERS
     ads_globals.h
