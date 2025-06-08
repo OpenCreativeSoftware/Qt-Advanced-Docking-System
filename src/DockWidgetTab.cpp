@@ -275,10 +275,10 @@ void DockWidgetTabPrivate::createLayout()
 	Layout->setContentsMargins(2 * Spacing,0,0,0);
 	Layout->setSpacing(0);
 	_this->setLayout(Layout);
-	Layout->addWidget(TitleLabel, 1);
-	Layout->addSpacing(Spacing);
 	Layout->addWidget(CloseButton);
 	Layout->addSpacing(qRound(Spacing * 4.0 / 3.0));
+	Layout->addWidget(TitleLabel, 1);
+	Layout->addSpacing(Spacing);
 	Layout->setAlignment(Qt::AlignCenter);
 
 	TitleLabel->setVisible(true);
